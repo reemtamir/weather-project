@@ -8,7 +8,9 @@ app.get('/', (req, res) => {
 });
 app.post('/', function (req, res) {
   const cityName = req.body.cityName;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ca7e9ec969ad1cce407a30f2829b0e9f&units=metric`;
+  const appid = 'ca7e9ec969ad1cce407a30f2829b0e9f';
+  const units = 'metric';
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${appid}&units=${units}`;
   https.get(url, function (response) {
     response.on('data', function (data) {
       const weatherData = JSON.parse(data);
